@@ -150,6 +150,6 @@ function aggiorna($titolo, $autore,  $prezzo) : void
 function logError(Exception $ex): void
 {
     echo '<h1>Controllare i dati inseriti</h1>';  // messaggio di errore nella pagina
-    error_log($ex->getMessage() . ' -- ' . date('Y-m-d H:i:s') . "\n", 3, 'log/error.log');  // appende il messaggio in un file di destinazione
+    error_log($ex->getMessage() . ' -- ' . date('Y-m-d H:i:s') . "\n", 3, '../log/error.log');  // appende il messaggio in un file di destinazione
     echo '<a href="../home.php"><button>Torna alla Home</button></a>';
 }
