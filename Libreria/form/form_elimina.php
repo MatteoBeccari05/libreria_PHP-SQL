@@ -24,6 +24,13 @@
     <input type="text" id="autore" name="autore" required>
 
     <input type="submit" value="Elimina">
+    <button onclick="window.location.href='../home.php';">Torna alla home</button>
+
+    <div class="pulsanti">
+        <button onclick="window.location.href='form_inserimento.php';">Inserisci libro</button>
+        <button onclick="window.location.href='form_aggiorna.php';">Aggiorna libro</button>
+        <button onclick="window.location.href='visualizza.php';">Visualizza libri</button>
+    </div>
 </form>
 
 <footer>

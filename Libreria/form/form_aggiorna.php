@@ -28,6 +28,12 @@
 
 
     <input type="submit" value="Aggiorna">
+    <button onclick="window.location.href='../home.php';">Torna alla home</button>
+    <div class="pulsanti">
+        <button onclick="window.location.href='form_inserimento.php';">Inserisci libro</button>
+        <button onclick="window.location.href='form_elimina.php';">Elimina libro</button>
+        <button onclick="window.location.href='visualizza.php';">Visualizza libri</button>
+    </div>
 
 </form>
 <footer>
