@@ -27,7 +27,6 @@ if(!verificaConnessione())
 else
 {
     elimina($titolo, $autore);   //richiamo la funzione creata nel file operazioni
-
 }
 ?>
 

@@ -29,7 +29,6 @@ if(!verificaConnessione())
 else
 {
     aggiorna($titolo, $autore, $prezzo);   //richiamo la funzione creata nel file operazioni
-
 }
 ?>
 

@@ -32,7 +32,6 @@ if(!verificaConnessione())
 else
 {
     inserimento($titolo, $autore, $genere, $prezzo, $data);   //richiamo la funzione creata nel file operazioni
-
 }
 ?>
 

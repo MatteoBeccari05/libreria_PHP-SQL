@@ -1,6 +1,6 @@
 <?php
 $content = 'Gestione della libreria';
-
+require_once '../struttura_pagina/functions_active_navbar.php';
 require '../struttura_pagina/navbar.php';
 ?>
 

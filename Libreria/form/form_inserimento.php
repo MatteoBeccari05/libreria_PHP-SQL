@@ -1,6 +1,7 @@
 <?php
 $content = 'Inserimento di un libro';
 require '../struttura_pagina/navbar.php';
+require_once '../struttura_pagina/functions_active_navbar.php';
 ?>
 
 
@@ -35,6 +36,7 @@ require '../struttura_pagina/navbar.php';
     <input type="date" id="data" name="data" required>
 
     <input type="submit" value="Inserisci">
+
 
 </form>
 

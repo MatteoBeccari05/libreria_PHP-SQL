@@ -1,23 +1,31 @@
 <?php
  //file con connessione al database e varie operazioni crud
+// Assicurati che il file di configurazione venga incluso correttamente
+$config = require 'db_config.php';
+
+// Includi la classe di connessione
+require 'DB_Connect.php';
 
 
 function verificaConnessione() : bool
 {
     global $db;
+    global $config;
     try
     {
-        $db = new PDO('mysql:host=localhost;dbname=libreria', 'root', '', [PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_OBJ]);
-
+        $db = DB_Connect::getDB($config);
+        // Verifica la connessione con una semplice query
         $db->query("SELECT 1");
         return true;
     }
     catch (Exception $e)
     {
-        error_log("Errore di connessione al database" . ' -- ' . date('Y-m-d H:i:s') . "\n", 3, '../log/error.log');  // appende il messaggio in un file di destinazione
+        // Log dell'errore
+        error_log("Errore di connessione al database: " . $e->getMessage() . ' -- ' . date('Y-m-d H:i:s') . "\n", 3, '../log/error.log');
         return false;
     }
 }
+
 
 
 
@@ -42,8 +50,7 @@ function inserimento($titolo, $autore, $genere, $prezzo, $data) : void
                 if ($stm->execute())
                 {
                     $stm->closeCursor();  // chiudo la connessione
-                    echo "<h1>Inserimento del libro avvenuto con successo!</h1>";
-                    echo '<a href="../form/home.php"><button>Torna alla Home</button></a>';
+                    header('Location:../passaggio_dati/confirm.html');  //per non avere problemi di scrittura doppia
                 }
                 else
                 {
@@ -52,8 +59,8 @@ function inserimento($titolo, $autore, $genere, $prezzo, $data) : void
             }
             else
             {
+                header('Location:../passaggio_dati/error.html');  //per non avere problemi di scrittura doppia
                 throw new PDOException("Controlla i dati inseriti");  // sollevo l'eccezione
-                echo '<a href="../form/form_inserimento.php"><button>Torna ad inserimento</button></a>';
             }
 
         }
@@ -118,8 +125,7 @@ function elimina($titolo, $autore) : void
             if ($stm->execute())
             {
                 $stm->closeCursor();  // chiudo la connessione
-                echo "<h1>Rimozione del libro avvenuta con successo!</h1>";
-                echo '<a href="../form/home.php"><button>Torna alla Home</button></a>';
+                header('Location:../passaggio_dati/confirm.html');  //per non avere problemi di scrittura doppia
             }
             else
             {
@@ -155,8 +161,7 @@ function aggiorna($titolo, $autore,  $prezzo) : void
                 if ($stm->execute())
                 {
                     $stm->closeCursor();  // chiudo la connessione
-                    echo "<h1>Aggiornamento del libro avvenuta con successo!</h1>";
-                    echo '<a href="../form/home.php"><button>Torna alla Home</button></a>';
+                    header('Location:../passaggio_dati/confirm.html');  //per non avere problemi di scrittura doppia
                 }
                 else
                 {
@@ -165,6 +170,7 @@ function aggiorna($titolo, $autore,  $prezzo) : void
             }
             else
             {
+                header('Location:../passaggio_dati/error.html');  //per non avere problemi di scrittura doppia
                 throw new PDOException("Controlla i dati inseriti");
             }
 
@@ -181,7 +187,6 @@ function aggiorna($titolo, $autore,  $prezzo) : void
 //salva l'errore in un file log
 function logError(Exception $ex): void
 {
-    echo '<h1>Controllare i dati inseriti</h1>';  // messaggio di errore nella pagina
     error_log($ex->getMessage() . ' -- ' . date('Y-m-d H:i:s') . "\n", 3, '../log/error.log');  // appende il messaggio in un file di destinazione
-    echo '<a href="../form/home.php"><button>Torna alla Home</button></a>';
+    header('Location:../passaggio_dati/error.html');  //per non avere problemi di scrittura doppia
 }

@@ -1,6 +1,7 @@
 <?php
 $content = 'Eliminazione di un libro';
 require '../struttura_pagina/navbar.php';
+require_once '../struttura_pagina/functions_active_navbar.php';
 ?>
 
 

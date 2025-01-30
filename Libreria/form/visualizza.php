@@ -1,5 +1,5 @@
 <?php
-
+require_once '../struttura_pagina/functions_active_navbar.php';
 $content = "Visualizza libri";
 require_once "../connessione_db/operazioni.php";
 require '../struttura_pagina/navbar.php';
@@ -27,6 +27,7 @@ else
 {
     visualizza();
 }
+
 ?>
 
 <?php
