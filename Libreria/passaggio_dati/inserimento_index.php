@@ -25,9 +25,7 @@ $data = $_POST['data'];
 <?php
 if(!verificaConnessione())
 {
-    echo "<h1>Errore nella connessione al database.</h1>";
-    echo '<a href="../form/home.php"><button>Torna alla Home</button></a>';
-    return;  // Esci dalla funzione
+    header("location:error_connection.html");
 }
 else
 {
