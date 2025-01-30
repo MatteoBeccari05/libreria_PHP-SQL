@@ -6,9 +6,6 @@ $titolo = $_POST['name'];
 $autore = $_POST['autore'];
 
 
-
-elimina($titolo, $autore);   //richiamo la funzione creata nel file operazioni
-
 ?>
 <!doctype html>
 <html lang="it">
@@ -20,6 +17,19 @@ elimina($titolo, $autore);   //richiamo la funzione creata nel file operazioni
     <link rel="stylesheet" href="../style/index.css">
 </head>
 <body>
+<?php
+if(!verificaConnessione())
+{
+    echo "<h1>Errore nella connessione al database.</h1>";
+    echo '<a href="../form/home.php"><button>Torna alla Home</button></a>';
+    return;  // Esci dalla funzione
+}
+else
+{
+    elimina($titolo, $autore);   //richiamo la funzione creata nel file operazioni
+
+}
+?>
 
 </body>
 </html>

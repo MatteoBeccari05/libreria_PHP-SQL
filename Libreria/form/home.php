@@ -15,7 +15,7 @@ require '../struttura_pagina/navbar.php';
     <title>Libreria</title>
 </head>
 <body>
-<h2><?=$content?></h2>
+<h2 class="titolo"><?=$content?></h2>
 <br>
 <div class="cards-container">
     <div class="card">

@@ -9,7 +9,6 @@ $prezzo = $_POST['prezzo'];
 $data = $_POST['data'];
 
 
-inserimento($titolo, $autore, $genere, $prezzo, $data);   //richiamo la funzione creata nel file operazioni
 
 ?>
 <!doctype html>
@@ -22,6 +21,20 @@ inserimento($titolo, $autore, $genere, $prezzo, $data);   //richiamo la funzione
     <link rel="stylesheet" href="../style/index.css">
 </head>
 <body>
+
+<?php
+if(!verificaConnessione())
+{
+    echo "<h1>Errore nella connessione al database.</h1>";
+    echo '<a href="../form/home.php"><button>Torna alla Home</button></a>';
+    return;  // Esci dalla funzione
+}
+else
+{
+    inserimento($titolo, $autore, $genere, $prezzo, $data);   //richiamo la funzione creata nel file operazioni
+
+}
+?>
 
 </body>
 </html>

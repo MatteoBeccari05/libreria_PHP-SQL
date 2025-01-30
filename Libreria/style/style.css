@@ -46,6 +46,14 @@ body {
     }
 }
 
+.titolo {
+    text-align: center;
+    font-size: 3.5em;
+    margin-top: 50px;
+    color: #4CAF50;
+}
+
+
 h2 {
     text-align: center;
     font-size: 2em;
@@ -173,8 +181,8 @@ input[type="submit"]:hover {
 }
 
 .card {
-    width: 250px;
-    height: 250px;
+    width: 450px;
+    height: 450px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -183,6 +191,7 @@ input[type="submit"]:hover {
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    margin-bottom: 70px;
 }
 
 .card:hover {
@@ -207,5 +216,7 @@ input[type="submit"]:hover {
     text-decoration: none;
     color: inherit;
 }
+
+
 
 

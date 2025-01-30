@@ -16,8 +16,18 @@ require '../struttura_pagina/navbar.php';
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
-<h2><?=$content?></h2>
-    <?=visualizza();?>
+    <h2><?=$content?></h2>
+<?php
+if(!verificaConnessione())
+{
+    echo "<h2>Errore nella connessione al database.</h2>";
+    return;  // Esci dalla funzione
+}
+else
+{
+    visualizza();
+}
+?>
 
 <?php
 require '../struttura_pagina/footer.php';

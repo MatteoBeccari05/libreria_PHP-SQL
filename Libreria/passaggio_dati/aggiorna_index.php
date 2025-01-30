@@ -7,9 +7,6 @@ $autore = $_POST['autore'];
 $prezzo = $_POST['prezzo'];
 
 
-
-aggiorna($titolo, $autore,  $prezzo);   //richiamo la funzione creata nel file operazioni
-
 ?>
 <!doctype html>
 <html lang="it">
@@ -21,6 +18,20 @@ aggiorna($titolo, $autore,  $prezzo);   //richiamo la funzione creata nel file o
     <link rel="stylesheet" href="../style/index.css">
 </head>
 <body>
+
+<?php
+if(!verificaConnessione())
+{
+    echo "<h1>Errore nella connessione al database.</h1>";
+    echo '<a href="../form/home.php"><button>Torna alla Home</button></a>';
+    return;  // Esci dalla funzione
+}
+else
+{
+    aggiorna($titolo, $autore, $prezzo);   //richiamo la funzione creata nel file operazioni
+
+}
+?>
 
 </body>
 </html>
